@@ -55,6 +55,7 @@
 
         @include smartphone {
           font-size: 1.8rem;
+          line-height: 2.6;
         }
       }
     }
@@ -157,6 +158,7 @@
           writing-mode: vertical-rl;
           @media(max-width:1000px){
             writing-mode: unset;
+            line-height: 2;
           }
           @include smartphone {
             font-size: 1.4rem;
