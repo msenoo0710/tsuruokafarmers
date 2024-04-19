@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鶴岡ファーマーズ公式サイト</title>
     <link rel="shortcut icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/slick/slick.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -12,63 +15,63 @@
 <body>
     <header class="header">
         <div class="header__wrap">
-            <div class="header__wrap__logo">
-                <h1 class="header__wrap__logo--mark">
+            <div class="header__logo">
+                <h1 class="header__logo-mark">
                     <a href="/">
-                        <img class="white" loading="eager" src="https://placehold.jp/74x74.png" width="74" height="74" alt="鶴岡ファーマーズ">
-                        <img class="def" loading="eager" src="https://placehold.jp/486A00/ffffff/74x74.png" width="74" height="74" alt="鶴岡ファーマーズ">
+                        <img class="header__logo-mark--white" loading="eager" src="https://placehold.jp/74x74.png" width="74" height="74" alt="鶴岡ファーマーズ">
+                        <img class="header__logo-mark--default" loading="eager" src="https://placehold.jp/486A00/ffffff/74x74.png" width="74" height="74" alt="鶴岡ファーマーズ">
                         <span>鶴岡ファーマーズ</span>
                     </a>
                 </h1>
             </div>
-            <div class="header__wrap__content">
-                <nav class="header__wrap__content__nav">
-                    <ul class="anker">
-                        <li><a href="#mission">
-                            <span class="en">MISSION</span>
-                            <span class="ja">ミッション</span>
+            <div class="header__content">
+                <nav class="header__nav">
+                    <ul class="header__nav-list anker">
+                        <li class="header__nav-item"><a href="#mission">
+                            <span class="header__nav-link--en">MISSION</span>
+                            <span class="header__nav-link--ja">ミッション</span>
                         </a></li>
-                        <li><a href="#about">
-                            <span class="en">ABOUT</span>
-                            <span class="ja">私たちについて</span>
+                        <li class="header__nav-item"><a href="#about">
+                            <span class="header__nav-link--en">ABOUT</span>
+                            <span class="header__nav-link--ja">私たちについて</span>
                         </a></li>
-                        <li><a href="#activity">
-                            <span class="en">ACTIVITY</span>
-                            <span class="ja">活動内容</span>
+                        <li class="header__nav-item"><a href="#activity">
+                            <span class="header__nav-link--en">ACTIVITY</span>
+                            <span class="header__nav-link--ja">活動内容</span>
                         </a></li>
                     </ul>
                 </nav>
-                <div class="header__wrap__content__hamburger">
-                    <div class="header__wrap__content__hamburger--menu">
+                <div class="header__hamburger">
+                    <div class="header__hamburger-bars">
                         <span></span><span></span><span></span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="header__mobile">
-            <div class="header__mobile__wrap">
-                <div class="header__mobile__wrap__logo">
-                    <h1 class="header__mobile__wrap__logo--mark">
+            <div class="header__mobile-wrap">
+                <div class="header__mobile-logo">
+                    <h1 class="header__mobile-logo-mark">
                         <a href="/">
-                            <img class="white" loading="eager" src="https://placehold.jp/74x74.png" width="74" height="74" alt="鶴岡ファーマーズ">
+                            <img class="header__mobile-logo-mark--white" loading="eager" src="https://placehold.jp/74x74.png" width="74" height="74" alt="鶴岡ファーマーズ">
                             <span>鶴岡ファーマーズ</span>
                         </a>
                     </h1>
                 </div>
-                <div class="header__mobile__wrap__content">
-                    <nav class="header__mobile__wrap__content__nav">
-                        <ul class="anker">
-                            <li><a href="#mission">
-                                <span class="en">MISSION</span>
-                                <span class="ja">ミッション</span>
+                <div class="header__mobile-content">
+                    <nav class="header__mobile-nav">
+                        <ul class="header__mobile-nav-list anker">
+                            <li class="header__mobile-nav-item"><a href="#mission">
+                                <span class="header__mobile-nav-link--en">MISSION</span>
+                                <span class="header__mobile-nav-link--ja">ミッション</span>
                             </a></li>
-                            <li><a href="#about">
-                                <span class="en">ABOUT</span>
-                                <span class="ja">私たちについて</span>
+                            <li class="header__mobile-nav-item"><a href="#about">
+                                <span class="header__mobile-nav-link--en">ABOUT</span>
+                                <span class="header__mobile-nav-link--ja">私たちについて</span>
                             </a></li>
-                            <li><a href="#activity">
-                                <span class="en">ACTIVITY</span>
-                                <span class="ja">活動内容</span>
+                            <li class="header__mobile-nav-item"><a href="#activity">
+                                <span class="header__mobile-nav-link--en">ACTIVITY</span>
+                                <span class="header__mobile-nav-link--ja">活動内容</span>
                             </a></li>
                         </ul>
                     </nav>
@@ -161,27 +164,26 @@
             <a href="#"><span>PageTop</span></a>
         </div>
         <div class="footer__wrap">
-            <div class="footer__wrap__logo">
-                <div class="footer__wrap__logo--mark">
-                    <a href="/">
-                        <img loading="eager" src="https://placehold.jp/486A00/ffffff/74x74.png" width="74" height="74" alt="鶴岡ファーマーズ">
-                        <span>鶴岡ファーマーズ</span>
-                    </a>
-                </div>
+            <div class="footer__logo">
+                <a href="/" class="footer__logo-link">
+                    <img loading="eager" src="https://placehold.jp/486A00/ffffff/74x74.png" width="74" height="74" alt="鶴岡ファーマーズ">
+                    <span>鶴岡ファーマーズ</span>
+                </a>
             </div>
-            <div class="footer__wrap__content">
-                <div class="footer__wrap__content--address">
+            <div class="footer__content">
+                <div class="footer__address">
                     <p>〒997-0832<br>山形県鶴岡市青柳町〇丁目〇番地</p>
                 </div>
-                <div class="footer__wrap__content--phone">
+                <div class="footer__phone">
                     <p>TEL 0235-000-0000 ／ FAX 0235-000-0000</p>
                 </div>
             </div>
-            <div class="footer__wrap__copyright">
-                <small>©︎ 2024 Tsuruoka Farmers</small>
+            <div class="footer__copyright">
+                <small>© 2024 Tsuruoka Farmers</small>
             </div>
         </div>
     </footer>
+    
     <script src="assets/vendor/jquery/3.7.1.js"></script>
     <script src="assets/vendor/scrollmagic/ScrollMagic.min.js"></script>
     <script src="assets/vendor/velocity/velocity.min.js"></script>

@@ -27,7 +27,7 @@
     });
 
     // マウスホバーで子メニューを表示する
-    $('.header__wrap__content__nav .child').hover(function() {
+    $('.header__nav .child').hover(function() {
       // マウスが要素に入った時の処理
       $(this).find('ol').velocity("slideDown", {
           duration: 300 // アニメーションの速度をミリ秒単位で指定
@@ -40,7 +40,7 @@
     });
 
     // ハンバーガーメニュー
-    $(".header__wrap__content__hamburger--menu").click(function () {
+    $(".header__hamburger-bars").click(function () {
       var $header = $(".header");
       var $headerWrap = $(".header__wrap");
       var $mobileMenu = $(".header__mobile");
@@ -55,11 +55,11 @@
           },
           complete: function(elements) {
             $body.css('overflow', 'hidden');
-            $mobileMenu.find('.header__mobile__wrap__content').velocity({ opacity: 1 }, { duration: 300 });
+            $mobileMenu.find('.header__mobile-content').velocity({ opacity: 1 }, { duration: 300 });
           }
         });
       } else {
-        $mobileMenu.find('.header__mobile__wrap__content').velocity({ opacity: 0 }, { duration: 0 });
+        $mobileMenu.find('.header__mobile-content').velocity({ opacity: 0 }, { duration: 0 });
         $mobileMenu.velocity("slideUp", {
           duration: 200,
           complete: function(elements) {
@@ -121,8 +121,8 @@
                   var $headerWrap = $(".header__wrap");
                   var $mobileMenu = $(".header__mobile");
                   var $body = $("body");
-                  $(".header__wrap__content__hamburger--menu").removeClass('active');
-                  $mobileMenu.find('.header__mobile__wrap__content').velocity({ opacity: 0 }, { duration: 0 });
+                  $(".header__hamburger-bars").removeClass('active');
+                  $mobileMenu.find('.header__mobile-content').velocity({ opacity: 0 }, { duration: 0 });
                   $mobileMenu.velocity("slideUp", {
                     duration: 200,
                     complete: function(elements) {

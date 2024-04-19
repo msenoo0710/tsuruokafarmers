@@ -9,7 +9,7 @@
         var headerCL = new ScrollMagic.Controller();
         var scene = new ScrollMagic.Scene({
             triggerElement: '.mainvisual', // トリガーとなる要素
-            duration: $('.mainvisual').outerHeight()*2, // .mainvisualの高さ
+            duration: $('.mainvisual').outerHeight()*3, // .mainvisualの高さ
             triggerHook: 0, // ページの上端でトリガー
         })
         .on('leave', function () {

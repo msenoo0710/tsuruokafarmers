@@ -64,59 +64,52 @@
       grid-template-rows: repeat(2, auto);
       padding: 60px 80px;
     }
-    &__logo{
-      grid-area: 1 / 1 / 2 / 2;
-      &--mark{
-        a{
-          display: flex;
-          flex-wrap: nowrap;
-          align-items: center;
-          gap: 10px;
-          text-decoration: none;
-          white-space: nowrap;
-          @include trans;
-          span{
-            font-size: 2rem;
-            font-weight: 700;
-            color: $mainColor;
-          }
-        }
+  }
+  &__logo{
+    grid-area: 1 / 1 / 2 / 2;
+    &-link{
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+      @include trans;
+      span{
+        font-size: 2rem;
+        font-weight: 700;
+        color: $mainColor;
       }
     }
-    &__content{
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      @include screen{
-        grid-area: 2 / 1 / 3 / 2;
-      }
-      &--address{
-        p{
-          font-size: 1.4rem;
-          font-weight: 500;
-        }
-      }
-      &--phone{
-        p{
-          font-size: 1.4rem;
-          font-weight: 500;
-        }
-      }
+  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    @include screen{
+      grid-area: 2 / 1 / 3 / 2;
     }
-    &__copyright{
-      display: flex;
-      @include smartphone{
-        justify-content: center;
-      }
-      @include screen{
-        grid-area: 1 / 2 / 3 / 3;
-        align-items: flex-end;
-        margin-left: auto;
-      }
-      small{
-        font-size: 1.4rem;
-        font-weight: 500;
-      }
+  }
+  &__address,
+  &__phone {
+    p {
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+  }
+  &__copyright{
+    display: flex;
+    @include smartphone{
+      justify-content: center;
+    }
+    @include screen{
+      grid-area: 1 / 2 / 3 / 3;
+      align-items: flex-end;
+      margin-left: auto;
+    }
+    small{
+      font-size: 1.4rem;
+      font-weight: 500;
     }
   }
 }
