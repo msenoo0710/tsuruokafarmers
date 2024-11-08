@@ -1,5 +1,5 @@
 @charset "utf-8";
-
+@use 'sass:math';
 /* ///////////////////////////////////////////
   value.scss
   変数・mixinに関する設定
@@ -42,219 +42,38 @@ $SPfontSize:1.4rem;
 $pclh:1.5;
 $splh:1.4;
 
-/*==Noto Sans JP==*/
-/*Thin*/
-@font-face {
-  font-family: 'Noto Sans JP';
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Sans_JP/NotoSansJP-Thin.woff2")format("woff2"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Thin.woff")format("woff"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Thin.eot")format("eot"),
-    url('../font/Noto_Sans_JP/NotoSansJP-Thin.ttf') format('truetype');
-}
-/*Light*/
-@font-face {
-  font-family: 'Noto Sans JP';
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Sans_JP/NotoSansJP-Light.woff2")format("woff2"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Light.woff")format("woff"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Light.eot")format("eot"),
-    url('../font/Noto_Sans_JP/NotoSansJP-Light.ttf') format('truetype');
-}
-/*Regular*/
-@font-face {
-  font-family: 'Noto Sans JP';
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Sans_JP/NotoSansJP-Regular.woff2")format("woff2"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Regular.woff")format("woff"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Regular.eot")format("eot"),
-    url('../font/Noto_Sans_JP/NotoSansJP-Regular.ttf') format('truetype');
-}
-/*Midium*/
-@font-face {
-  font-family: 'Noto Sans JP';
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Sans_JP/NotoSansJP-Medium.woff2")format("woff2"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Medium.woff")format("woff"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Medium.eot")format("eot"),
-    url('../font/Noto_Sans_JP/NotoSansJP-Medium.ttf') format('truetype');
-}
-/*Bold*/
-@font-face {
-  font-family: 'Noto Sans JP';
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Sans_JP/NotoSansJP-Bold.woff2")format("woff2"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Bold.woff")format("woff"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Bold.eot")format("eot"),
-    url('../font/Noto_Sans_JP/NotoSansJP-Bold.ttf') format('truetype');
-}
-/*Black*/
-@font-face {
-  font-family: 'Noto Sans JP';
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Sans_JP/NotoSansJP-Black.woff2")format("woff2"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Black.woff")format("woff"),
-    url("../font/Noto_Sans_JP/NotoSansJP-Black.eot")format("eot"),
-    url('../font/Noto_Sans_JP/NotoSansJP-Black.ttf') format('truetype');
+//可変フォントサイズ
+@mixin fontSize(
+    $fs_min: 16,
+    $width_small: 576,//576
+    $width_large: 1300,//992
+    $fs_max: 18
+) {
+    $preferred_vw_base: math.div(($fs_max - $fs_min), ($width_large - $width_small));
+    $preferred_vw: $preferred_vw_base * 100;
+    $preferred_rem: $width_small * -1 * $preferred_vw_base + $fs_min;
+    font-size: clamp(
+        #{$fs_min * 0.1rem},
+        calc(#{$preferred_rem * 0.1rem} + #{$preferred_vw} * 1vw),
+        #{$fs_max * 0.1rem}
+    );
 }
 
-/*==Noto Serif JP==*/
-/*Thin*/
-@font-face {
-  font-family: 'Noto Serif JP';
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Serif_JP/NotoSerifJP-Thin.woff2")format("woff2"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Thin.woff")format("woff"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Thin.eot")format("eot"),
-    url('../font/Noto_Serif_JP/NotoSerifJP-Thin.ttf') format('truetype');
-}
-/*Light*/
-@font-face {
-  font-family: 'Noto Serif JP';
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Serif_JP/NotoSerifJP-Light.woff2")format("woff2"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Light.woff")format("woff"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Light.eot")format("eot"),
-    url('../font/Noto_Serif_JP/NotoSerifJP-Light.ttf') format('truetype');
-}
-/*Regular*/
-@font-face {
-  font-family: 'Noto Serif JP';
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Serif_JP/NotoSerifJP-Regular.woff2")format("woff2"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Regular.woff")format("woff"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Regular.eot")format("eot"),
-    url('../font/Noto_Serif_JP/NotoSerifJP-Regular.ttf') format('truetype');
-}
-/*Midium*/
-@font-face {
-  font-family: 'Noto Serif JP';
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Serif_JP/NotoSerifJP-Medium.woff2")format("woff2"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Medium.woff")format("woff"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Medium.eot")format("eot"),
-    url('../font/Noto_Serif_JP/NotoSerifJP-Medium.ttf') format('truetype');
-}
-/*Bold*/
-@font-face {
-  font-family: 'Noto Serif JP';
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Serif_JP/NotoSerifJP-Bold.woff2")format("woff2"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Bold.woff")format("woff"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Bold.eot")format("eot"),
-    url('../font/Noto_Serif_JP/NotoSerifJP-Bold.ttf') format('truetype');
-}
-/*Black*/
-@font-face {
-  font-family: 'Noto Serif JP';
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Noto_Serif_JP/NotoSerifJP-Black.woff2")format("woff2"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Black.woff")format("woff"),
-    url("../font/Noto_Serif_JP/NotoSerifJP-Black.eot")format("eot"),
-    url('../font/Noto_Serif_JP/NotoSerifJP-Black.ttf') format('truetype');
+
+/*====================================
+  余白
+=====================================*/
+
+@mixin flex-gap($gap-desktop, $gap-smartphone, $direction: column) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap-desktop;
+
+  @include smartphone {
+    gap: $gap-smartphone;
+  }
 }
 
-/*==Oswald==*/
-/*Light*/
-@font-face {
-  font-family: 'Oswald';
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Oswald/Oswald-Light.woff2")format("woff2"),
-    url("../font/Oswald/Oswald-Light.woff")format("woff"),
-    url("../font/Oswald/Oswald-Light.eot")format("eot"),
-    url('../font/Oswald/Oswald-Light.ttf') format('truetype');
-}
-/*Regular*/
-@font-face {
-  font-family: 'Oswald';
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Oswald/Oswald-Regular.woff2")format("woff2"),
-    url("../font/Oswald/Oswald-Regular.woff")format("woff"),
-    url("../font/Oswald/Oswald-Regular.eot")format("eot"),
-    url('../font/Oswald/Oswald-Regular.ttf') format('truetype');
-}
-/*Midium*/
-@font-face {
-  font-family: 'Oswald';
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Oswald/Oswald-Medium.woff2")format("woff2"),
-    url("../font/Oswald/Oswald-Medium.woff")format("woff"),
-    url("../font/Oswald/Oswald-Medium.eot")format("eot"),
-    url('../font/Oswald/Oswald-Medium.ttf') format('truetype');
-}
-/*Bold*/
-@font-face {
-  font-family: 'Oswald';
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src:
-    url("../font/Oswald/Oswald-Bold.woff2")format("woff2"),
-    url("../font/Oswald/Oswald-Bold.woff")format("woff"),
-    url("../font/Oswald/Oswald-Bold.eot")format("eot"),
-    url('../font/Oswald/Oswald-Bold.ttf') format('truetype');
-}
 
 
 /*====================================
