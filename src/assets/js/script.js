@@ -104,7 +104,7 @@
 
 
     //アンカーリンク
-    $('.anker a[href^="#"]').on('click', function(e) {
+    $('.header__nav-item a[href^="#"]').on('click', function(e) {
       e.preventDefault();
       var target = $($(this).attr('href'));
       if (target.length) {
@@ -134,6 +134,38 @@
           });
       }
     });
+
+    $('.header__mobile-nav-item a[href^="#"]').on('click', function(e) {
+      e.preventDefault();
+      var target = $($(this).attr('href'));
+      if (target.length) {
+          // アニメーションなしで指定位置までスクロール
+          $('html, body').css('overflow-x', 'hidden'); // スクロール前にoverflow-xをhiddenに設定
+          $('html, body').scrollTop(target.offset().top); // スクロール位置を設定
+          $('html, body').css('overflow', ''); // スクロール後にoverflow-xを元に戻す
+    
+          // メニューを閉じる処理
+          var $mobileMenu = $(".header__mobile");
+          var $body = $("body");
+          $(".header__hamburger-bars").removeClass('active');
+          $mobileMenu.find('.header__mobile-content').css({ opacity: 0 });
+          $mobileMenu.slideUp(0, function() {
+            $(this).css('display', 'none');
+            $body.css('overflow', '');
+          });
+      }
+    });
+    
+
+    // ページ読み込み時にハッシュがあるか確認
+    if (window.location.hash) {
+      var target = $(window.location.hash);
+      if (target.length) {
+        $("html, body").css('overflow-x', 'hidden'); // スクロール前にoverflow-xをhiddenに設定
+        $("html, body").scrollTop(target.offset().top); // アニメーションなしでスクロール
+        $("html, body").css('overflow-x', ''); // スクロール後にoverflow-xを元に戻す
+      }
+    }
   
 
   });

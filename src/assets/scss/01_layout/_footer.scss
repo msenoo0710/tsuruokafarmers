@@ -75,10 +75,21 @@
       text-decoration: none;
       white-space: nowrap;
       @include trans;
-      span{
-        font-size: 2rem;
-        font-weight: 700;
-        color: $mainColor;
+      img{
+        max-width: 100px;
+        @include smartphone{
+          max-width: 80px;
+        }
+      }
+      div{
+        @include flex-gap(0, $direction: column);
+        span{
+          display: block;
+          @include fontSize($fs_min:20, $fs_max:22);
+          color: $mainColor;
+          line-height: 1;
+          text-align: center;
+        }
       }
     }
   }
@@ -93,7 +104,7 @@
   &__address,
   &__phone {
     p {
-      font-size: 1.4rem;
+      @include fontSize($fs_min:14, $fs_max:16);
       font-weight: 500;
     }
   }
@@ -108,7 +119,7 @@
       margin-left: auto;
     }
     small{
-      font-size: 1.4rem;
+      @include fontSize($fs_min:14, $fs_max:16);
       font-weight: 500;
     }
   }

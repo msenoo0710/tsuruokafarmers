@@ -7,12 +7,12 @@
 /*====================================
   カラー
 =====================================*/
-$color1:#486A00; //青
+$color1:#bb8d1b; //青
 $color2:#FFF; //白
 $color3:#333; //黒
 $color4: #F4F4F4; //薄いグレー
 $color5: #E6E6E6; //グレー
-$color6: #AAAAAA; //グレー
+$color6: #E6E6E6; //グレー
 
 $mainColor:$color1; //青
 $baseColor:$color2; //白
@@ -31,7 +31,8 @@ $imgPath:'../images';
 /*====================================
   フォント
 =====================================*/
-$baseFont: "Noto Sans JP", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", "Meiryo","ＭＳ Ｐゴシック", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+// "Noto Sans JP" sans-serif
+$baseFont: "Hina Mincho", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", "Meiryo","ＭＳ Ｐゴシック", "Helvetica Neue", "Helvetica", "Arial", serif;
 $serif: "Noto Serif JP", "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "游明朝", YuMincho, "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 
 //フォントサイズ
@@ -64,16 +65,17 @@ $splh:1.4;
   余白
 =====================================*/
 
-@mixin flex-gap($gap-desktop, $gap-smartphone, $direction: column) {
+@mixin flex-gap($gap-desktop, $gap-smartphone: null, $direction: column) {
   display: flex;
   flex-direction: $direction;
   gap: $gap-desktop;
 
-  @include smartphone {
-    gap: $gap-smartphone;
+  @if $gap-smartphone != null {
+    @include smartphone {
+      gap: $gap-smartphone;
+    }
   }
 }
-
 
 
 /*====================================

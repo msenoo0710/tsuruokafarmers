@@ -32,34 +32,32 @@
       position: absolute;
       z-index: 4;
       p {
-        font-size: 3.8rem;
-        font-weight: 700;
+        @include fontSize($fs_min:28, $fs_max:38);
+        font-weight: 400;
         color: white;
         writing-mode: vertical-rl;
-
-        @include smartphone {
-          font-size: 2.8rem;
-        }
       }
     }
     &__content {
-      @include makeContainer($mx:1000px, $pd_pc:60px, $pd_tb:60px, $pd_sp:15px);
+      @include makeContainer($mx:1000px, $pd_pc:60px, $pd_tb:60px, $pd_sp:0);
       opacity: 0;
       position: absolute;
       z-index: 5;
       p {
-        font-size: 2.4rem;
-        line-height: 3;
-        font-weight: 700;
+        @include fontSize($fs_min:18, $fs_max:24);
+        line-height: 2.2;
+        font-weight: 400;
         color: white;
-
-        @include smartphone {
-          font-size: 1.8rem;
-          line-height: 2.6;
-        }
       }
     }
     &__background {
+      &--slider{
+        img{
+          width: 100%;
+          height: 100svh;
+          object-fit: cover;
+        }
+      }
       &--video {
         video {
           position: absolute;
@@ -75,8 +73,92 @@
     .fade-in { opacity: 1; transition: opacity 1s ease-in-out; }
   }
 
+  .guidelines{
+    @include makeContainer($mx:1420px, $pd_pc:180px 60px, $pd_tb:180px 60px, $pd_sp:100px 20px);
+    &__wrap{
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      @include smartphone{
+        gap: 40px;
+      }
+    }
+    &__heading{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      text-align: center;
+
+      i {
+        font-family: 'Oswald';
+        @include fontSize($fs_min:50, $fs_max:160);
+        font-weight: 700;
+        line-height: 1;
+        color: $mainColor;
+      }
+
+      h2 {
+        @include fontSize($fs_min:14, $fs_max:24);
+        font-weight: 700;
+      }
+    }
+    &__content{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      @include smartphone{
+        grid-template-columns: 1fr;
+      }
+      section{
+        @include flex-gap(20px, $direction: column);
+        h2{
+          @include fontSize($fs_min:16, $fs_max:24);
+          text-align: center;
+          color: white;
+          background-color: $mainColor;
+          line-height: 1.8;
+          border-radius: 50px 3px;
+        }
+        div{
+          @include flex-gap(20px, $direction: column);
+        }
+        h3{
+          @include fontSize($fs_min:14, $fs_max:24);
+          text-align: center;
+        }
+        .table.type2{
+          thead{
+            th{
+              &:nth-of-type(1){
+                width: 45%;
+              }
+              &:nth-of-type(2){
+                width: 25%;
+                text-align: center;
+              }
+              &:nth-of-type(3){
+                width: 25%;
+                text-align: center;
+              }
+            }
+          }
+          tbody{
+            td{
+              &:nth-of-type(2){
+                text-align: center;
+              }
+              &:nth-of-type(3){
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   .overview{
-    @include makeContainer($mx:1720px, $pd_pc:150px 0, $pd_tb:150px 0, $pd_sp:100px 0);
+    @include makeContainer($mx:1420px, $pd_pc:150px 60px, $pd_tb:150px 60px, $pd_sp:100px 40px);
     &__wrap{
       display: flex;
       flex-direction: column;
@@ -89,6 +171,7 @@
     &__heading{
       display: flex;
       flex-direction: column;
+      gap: 1em;
       padding: 0 60px;
       @media(max-width:1000px){
         padding: 0 20px;
@@ -96,23 +179,15 @@
 
       i {
         font-family: 'Oswald';
-        font-size: 16.0rem;
+        @include fontSize($fs_min:80, $fs_max:160);
         font-weight: 700;
         line-height: 1;
         color: $mainColor;
-
-        @include smartphone {
-          font-size: 8.0rem;
-        }
       }
 
       h2 {
-        font-size: 2.4rem;
-        font-weight: 900;
-
-        @include smartphone {
-          font-size: 1.6rem;
-        }
+        @include fontSize($fs_min:16, $fs_max:24);
+        font-weight: 700;
       }
     }
     &__content{
@@ -137,8 +212,8 @@
           height: auto;
         }
         h3{
-          font-size: 4.0rem;
-          font-weight: 700;
+          @include fontSize($fs_min:24, $fs_max:40);
+          font-weight: 400;
           color: white;
           line-height: 1;
           writing-mode: vertical-rl;
@@ -148,20 +223,14 @@
           @media(max-width:1000px){
             writing-mode: unset;
           }
-          @include smartphone {
-            font-size: 2.4rem;
-          }
         }
         p{
-          font-size: 2.4rem;
-          font-weight: 700;
+          @include fontSize($fs_min:14, $fs_max:24);
+          font-weight: 400;
           writing-mode: vertical-rl;
           @media(max-width:1000px){
             writing-mode: unset;
             line-height: 2;
-          }
-          @include smartphone {
-            font-size: 1.4rem;
           }
         }
       }
@@ -213,24 +282,16 @@
       flex-direction: column;
 
       i {
-        font-family: Roboto Condensed;
-        font-size: 11.0rem;
+        @include fontSize($fs_min:45, $fs_max:110);
+        font-family: Oswald;
         font-weight: 700;
         line-height: 1;
         color: black;
-
-        @include smartphone {
-          font-size: 4.5rem;
-        }
       }
       h2 {
-        font-size: 2.4rem;
-        font-weight: 900;
+        @include fontSize($fs_min:14, $fs_max:24);
+        font-weight: 700;
         color: black;
-
-        @include smartphone {
-          font-size: 1.4rem;
-        }
       }
     }
     &__content{

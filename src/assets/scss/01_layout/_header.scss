@@ -20,19 +20,14 @@
   }
   &__wrap {
     display: grid;
-    grid-template-columns: 260px auto;
+    grid-template-columns: auto auto;
     align-items: center;
-
-    @include smartphone {
-      grid-template-columns: 195px auto;
-    }
   }
   &__logo,
   &__mobile-logo {
-    padding: 20px;
-
+    padding: 60px 80px;
     @include smartphone {
-      padding: 10px 15px;
+      padding: 10px 20px;
     }
 
     &-mark {
@@ -50,18 +45,29 @@
         text-decoration: none;
         white-space: nowrap;
         @include trans;
-        span{
-          font-size: 2.0rem;
-          font-weight: 700;
-          color: white;
+        img{
+          max-width: 100px;
+          @include smartphone{
+            max-width: 80px;
+          }
+        }
+        div{
+          @include flex-gap(0, $direction: column);
+          span{
+            display: block;
+            @include fontSize($fs_min:20, $fs_max:22);
+            color: white;
+            line-height: 1;
+            text-align: center;
+          }
         }
       }
     }
   }
   &__content{
-    padding: 20px;
+    padding: 60px 80px;
     @include smartphone {
-      padding: 10px 15px;
+      padding: 10px 20px;
     }
     display: flex;
     flex-wrap: nowrap;
@@ -93,7 +99,6 @@
           @include trans;
           span{
             color: white;
-            font-weight: 700;
             list-style: 1;
             &.en{
               font-size: 2.0rem;
@@ -148,7 +153,7 @@
           display: inline-block;
           position: absolute;
           left: 0;
-          height: 2px;
+          height: 1px;
           border-radius: 5px;
           width: 100%;
           max-width: 74px;
@@ -193,12 +198,14 @@
     left: 0;
     overflow-y: auto;
     &-wrap{
-      @include makeContainer($mx:100%, $pd_pc:20px, $pd_tb:20px, $pd_sp:10px 15px);
       height: 100%;
       gap: 60px;
     }
     &-logo{
-      padding: 0;
+      padding: 60px 80px;
+      @include smartphone {
+        padding: 10px 20px;
+      }
     }
     &-content{
       opacity: 0;

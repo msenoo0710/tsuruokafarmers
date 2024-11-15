@@ -63,23 +63,36 @@
             })
             .addTo(mainvisualCL);
 
+        // 背景スライド
+        $('.mainvisual__background--slider').slick({
+            slidesToShow: 1,           // 一度に表示するスライド数
+            slidesToScroll: 1,         // スクロールするスライド数
+            autoplay: true,            // 自動再生
+            autoplaySpeed: 3000,       // スライドが切り替わるまでの時間（ミリ秒）
+            fade: true,                // フェード効果を有効に
+            arrows: false,             // 矢印を非表示
+            dots: true,                // ドットナビゲーションの表示
+            infinite: true             // 無限ループ
+        });
+        
         // カルーセル
-        $('.mod__slider__carousel').slick(
-            {
-                infinite: false,
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            }
-        );
+        // $('.mod__slider__carousel').slick(
+        //     {
+        //         infinite: false,
+        //         slidesToShow: 4,
+        //         slidesToScroll: 4,
+        //         responsive: [
+        //             {
+        //                 breakpoint: 768,
+        //                 settings: {
+        //                     slidesToShow: 1,
+        //                     slidesToScroll: 1
+        //                 }
+        //             }
+        //         ]
+        //     }
+        // );
 
     });
 })(jQuery);
+

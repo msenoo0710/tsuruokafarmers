@@ -25,6 +25,7 @@ body{
   color: $fontColor;
   background-color: #D9D9D9;
   font-weight: 400;
+  letter-spacing: 0.05em;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   @include smartphone {
@@ -102,6 +103,7 @@ a {
   visibility: hidden;
 }
 
+
 .js-fadeUp {
   opacity: 0;
   transform: translateY(50px);
@@ -110,4 +112,22 @@ a {
 .js-fadeIn{
   opacity: 0;
   transition: opacity 1s ease-in-out;
+}
+
+.opening {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  img{
+    width: 150px;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
 }
